@@ -1,8 +1,12 @@
 <div class="text-center">
     <div>Tour de Cédric</div>
     <div class="grid">
-        <div *ngFor="let cell of grid" class="cell">
-            <div class="cross"></div>
+        <div *ngFor="let cell of grid" class="cell" (click)="clickOnCell(cell)">
+            <!--first solution-->
+            <!--<div *ngIf="!cell.empty && cell.cross" class="cross"></div>-->
+            <!--<div *ngIf="!cell.empty && cell.circle" class="circle"></div>-->
+            <!--second solution-->
+            <div *ngIf="!cell.empty" [class.cross]="cell.cross" [class.circle]="cell.circle"></div>
         </div>
     </div>
     <button type="button" class="btn btn-primary">
